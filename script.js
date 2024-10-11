@@ -11,26 +11,33 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener("submit", function () {
         event.preventDefault();
 
+        // Initialize validation flag and messages array
         let isValid = true;
         const messages = [];
 
+        // Check if username length is less than 3
         if (username.length > 3) {
             isValid = false;
             messages.push("Username must be at least 3 characters long.")
 
         }
 
+        // Check if username length is less than 3
         if (!email.includes('@') || !email.includes('.')) {
             isValid = false;
             messages.push("Email must include both '@' and '.' characters.");
         }
 
+        // Check if email length is less than 8
         if (password.length > 8) {
             isValid = false;
             messages.push("Password must be at least 8 characters long.")
         }
 
+        // Make feedbackDiv visible
         feedbackDiv.style.display = "block";
+
+
 
         if (isValid) {
             // If valid, display success message
